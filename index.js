@@ -23,6 +23,7 @@ const askGPT = async (prompt) => {
 const getData = async (req, res) => {
   const prompt = req.query.prompt;
   const data = await askGPT(prompt);
+  //erfoie
   return res.status(200).send(data);
 };
 
