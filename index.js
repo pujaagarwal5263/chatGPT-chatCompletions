@@ -1,9 +1,7 @@
 const { Configuration, OpenAIApi } = require("openai");
-const serverless = require("serverless-http");
 const express = require("express");
 require('dotenv').config()
 const app = express();
-const router = express.Router()
 app.use(express.json());
 
 const configuration = new Configuration({
@@ -30,7 +28,7 @@ const getData = async (req, res) => {
 };
 
 app.get("/chatbot", getData);
-app.use(`/.netlify/functions/api`, router);
 
-module.exports = app;
-module.exports.handler = serverless(app);
+app.listen(8000,()=>{
+  console.log("server running....!!");
+})
